@@ -6,20 +6,19 @@
  */
 
 module.exports = {
-  beforeCreate: function (attrs, next) {
-    var bcrypt = require('bcrypt');
+  findUserPassword:function(req,res)
+  {
+    var id = req.param('id');
+    User.findOne({empnum:id})
+      .exec(function(err,user){
 
-    bcrypt.genSalt(10, function(err, salt) {
-      if (err) return next(err);
-
-      bcrypt.hash(attrs.password, salt, function(err, hash) {
-        if (err) return next(err);
-
-        attrs.password = hash;
-        next();
+        if(err)
+          res.json({error:err});
+        if(user === undefined)
+          res.json({notFound:true});
+        else
+          res.json({notFound:false,userData:user});
       });
-    });
   }
-
 };
 
