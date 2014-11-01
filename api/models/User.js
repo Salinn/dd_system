@@ -9,30 +9,27 @@ module.exports = {
 
   attributes: {
     email:{
-      type:"email",
-      required:true,
+      type:"email"//,
+      //required:true//,
+      //unique: true
+    },
+    facebookId: {
+      type: 'string',
+      required: true,
       unique: true
     },
-    password:{
-      type:"string",
-      required:true,
-      minLength: 6
-    },
     brother:{
-      type:"boolean",
-      required:true
+      type:"boolean"
     },
     dues_owed:{
-      type:"float",
-      required:false
+      type:"float"
     },
     ritual_num:{
-      type:"int",
-      required:true
+      type:"int"
     },
     role:{
       type:"string",
-      required:true,
+      //required:true,
       in: ['Brother', 'Guest', 'Friend', 'Driver', 'Finance', 'Admin']
     }
 

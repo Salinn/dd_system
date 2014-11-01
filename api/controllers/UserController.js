@@ -5,20 +5,44 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var passport = require('passport');
+
 module.exports = {
-  findUserPassword:function(req,res)
-  {
-    var id = req.param('id');
-    User.findOne({empnum:id})
-      .exec(function(err,user){
 
-        if(err)
-          res.json({error:err});
-        if(user === undefined)
-          res.json({notFound:true});
-        else
-          res.json({notFound:false,userData:user});
-      });
+  login: function (req, res) {
+    res.view();
+  },
+
+  dashboard: function (req, res) {
+    res.view();
+  },
+
+  logout: function (req, res){
+    req.session.user = null;
+    req.session.flash = 'You have logged out';
+    res.redirect('user/login');
+  },
+
+  'facebook': function (req, res, next) {
+    passport.authenticate('facebook', { scope: ['email', 'user_about_me']},
+      function (err, user) {
+        req.logIn(user, function (err) {
+          if(err) {
+            req.session.flash = 'There was an error';
+            res.redirect('user/login');
+          } else {
+            req.session.user = user;
+            res.redirect('/user/dashboard');
+          }
+        });
+      })(req, res, next);
+  },
+
+  'facebook/callback': function (req, res, next) {
+    passport.authenticate('facebook',
+      function (req, res) {
+        res.redirect('/user/dashboard');
+      })(req, res, next);
   }
-};
 
+};
