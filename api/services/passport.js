@@ -2,7 +2,7 @@ var passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy;
 
 function findById(id, fn) {
-  User.findOne(id).done(function (err, user) {
+  User.findOne(id, function (err, user) {
     if (err) {
       return fn(null, null);
     } else {
@@ -14,8 +14,8 @@ function findById(id, fn) {
 function findByFacebookId(id, fn) {
   User.findOne({
     facebookId: id
-  }).done(function (err, user) {
-    if (err) {
+  }, function (err, user) {
+    if (err || !user) {
       return fn(null, null);
     } else {
       return fn(null, user);
@@ -51,7 +51,7 @@ passport.use(new FacebookStrategy({
           // You can also add any other data you are getting back from Facebook here
           // as long as it is in your model
 
-        }).done(function (err, user) {
+        }, function (err, user) {
           if (user) {
             return done(null, user, {
               message: 'Logged In Successfully'

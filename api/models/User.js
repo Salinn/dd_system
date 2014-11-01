@@ -33,16 +33,7 @@ module.exports = {
       in: ['Brother', 'Guest', 'Friend', 'Driver', 'Finance', 'Admin']
     }
 
-  },
-
-  beforeCreate: function (attrs, next) {
-    var crypto = require('crypto');
-    var salt = crypto.randomBytes(6).toString('base64');
-
-    crypto.pbkdf2(attrs.password, salt, 10000, 512, function(err, derivedKey) {
-      attrs.password = derivedKey;
-      next();
-    });
   }
+
 };
 
