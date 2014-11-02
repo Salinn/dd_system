@@ -46,8 +46,11 @@ passport.use(new FacebookStrategy({
       if (!user) {
         User.create({
 
-          facebookId: profile.id
-
+          facebookId: profile.id,
+          email: profile.emails[0].value,
+          name: profile.displayName,
+          gender: profile.gender,
+          role: "Guest"
           // You can also add any other data you are getting back from Facebook here
           // as long as it is in your model
 

@@ -9,14 +9,15 @@ module.exports = {
 
   attributes: {
     email:{
-      type:"email"//,
-      //required:true//,
-      //unique: true
+      type:"email",
+      unique: true
     },
     facebookId: {
       type: 'string',
-      required: true,
       unique: true
+    },
+    name:{
+      type: 'string'
     },
     brother:{
       type:"boolean"
@@ -27,9 +28,11 @@ module.exports = {
     ritual_num:{
       type:"int"
     },
+    gender:{
+      in: ["male", "female", "na"]
+    },
     role:{
       type:"string",
-      //required:true,
       in: ['Brother', 'Guest', 'Friend', 'Driver', 'Finance', 'Admin']
     }
 
