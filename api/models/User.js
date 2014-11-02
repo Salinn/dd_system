@@ -36,6 +36,15 @@ module.exports = {
       in: ['Brother', 'Guest', 'Friend', 'Driver', 'Finance', 'Admin']
     }
 
+  },
+
+  beforeCreate: function (attrs, next) {
+    if (attrs.gender == "female"){
+      attrs.dues_owed = 200
+    } else {
+      attrs.dues_owed = 400
+    }
+    next();
   }
 
 };

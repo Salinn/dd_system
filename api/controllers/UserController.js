@@ -45,5 +45,4 @@ module.exports = {
         res.redirect('/user/dashboard');
       })(req, res, next);
   }
-
 };
