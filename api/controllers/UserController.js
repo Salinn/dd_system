@@ -25,7 +25,7 @@ module.exports = {
   },
 
   'facebook': function (req, res, next) {
-    passport.authenticate('facebook', { scope: ['email', 'user_about_me']},
+    passport.authenticate('facebook', { scope: ['email', 'user_about_me','user_friends']},
       function (err, user) {
         req.logIn(user, function (err) {
           if(err) {

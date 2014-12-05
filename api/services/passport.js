@@ -52,8 +52,7 @@ passport.use(new FacebookStrategy({
           gender: profile.gender,
           role: "Guest",
           brother: false,
-          ritual_num: 0
-
+          ritual_num: 301401
 
           // You can also add any other data you are getting back from Facebook here
           // as long as it is in your model
