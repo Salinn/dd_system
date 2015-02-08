@@ -19,37 +19,25 @@ module.exports = {
     name:{
       type: 'string'
     },
-    brother:{
-      type:"boolean"
-    },
-    dues_owed:{
-      type:"float"
-    },
-    ritual_num:{
-      type:"int"
-    },
     gender:{
       in: ["male", "female", "na"]
     },
     phone_number:{
       type: 'string'
-    },
-    role:{
-      type:"string",
-      in: ['Brother', 'Guest', 'Friend', 'Driver', 'Finance', 'Admin']
     }
-  },
-
-  beforeCreate: function (attrs, next) {
-    if (attrs.gender == "female"){
-      attrs.dues_owed = 200
-    } else {
-      attrs.dues_owed = 400
-    }
-
-    attrs.ritual_num = attrs.ritual_num +  Math.floor(Math.random() * (10000 - 10 + 1) + 10);
-    next();
   }
+
+
+  //beforeCreate: function (attrs, next) {
+  //  if (attrs.gender == "female"){
+  //    attrs.dues_owed = 200
+  //  } else {
+  //    attrs.dues_owed = 400
+  //  }
+  //
+  //  attrs.ritual_num = attrs.ritual_num +  Math.floor(Math.random() * (10000 - 10 + 1) + 10);
+  //  next();
+  //}
 
 };
 
