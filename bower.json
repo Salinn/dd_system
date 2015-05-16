@@ -16,6 +16,7 @@
   "dependencies": {
     "polymer": "~0.5.4",
     "core-scaffold": "Polymer/core-scaffold#~0.5.4",
-    "core-menu": "polymer/core-menu#~0.5.4"
+    "core-menu": "polymer/core-menu#~0.5.4",
+    "app-router": "~2.6.1"
   }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="DD">
+<html>
   <head>
     <title>New Sails App</title>
 
@@ -39,17 +39,16 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="/bower_components/core-scaffold/core-scaffold.html">
-    <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
-    <link rel="import" href="/bower_components/core-menu/core-menu.html">
-    <link rel="import" href="/bower_components/core-item/core-item.html">
+    <link rel="import" href="/elements/core/dd-app.html">
 
-
+    <link rel="stylesheet" href="/css/styles.css" shim-shadowdom>
+    <link rel="import" href="/bower_components/app-router/app-router.html">
   </head>
+  <body unresolved>
 
-  <body>
+
     <%- body %>
 
 
@@ -74,10 +73,6 @@
             + Internationalize your client-side templates using a server-side
               stringfile before they're served.
     -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <!--TEMPLATES-->
     <script type="text/javascript" src="/jst.js"></script>
     <!--TEMPLATES END-->
@@ -107,10 +102,7 @@
     -->
 
     <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/App.js"></script>
-    <script src="/js/SocketFactory.js"></script>
-    <script src="/js/angular-ui-router.js"></script>
+    
     <!--SCRIPTS END-->
   </body>
 </html>

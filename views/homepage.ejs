@@ -1,38 +1,7 @@
-<core-scaffold>
-
-  <core-header-panel navigation flex mode="seamed">
-    <core-toolbar style="background-color: #526E9C; color: #fff;">Application</core-toolbar>
-    <core-menu>
-      <core-item icon="settings" label="item1"></core-item>
-      <core-item icon="settings" label="item2"></core-item>
-    </core-menu>
-  </core-header-panel>
-
-  <div tool>Title</div>
-
-  <div class="content">Content goes here...</div>
-
-</core-scaffold>
-
-
-
-
-<div ng-controller="HomepageCtrl">
-    <div ui-view="navbar"></div>
-    <div id="content" ng-controller="HomepageCtrl" ng-show="model.isLoggedIn() && model.hasPin()">
-
-        <div ui-view="content" style="margin-top: 40px"></div>
-    </div>
-
-    <div id="content" ng-show="model.isLoggedIn() && !model.hasPin()">
-        <div ui-view="navbar"></div>
-        <div ui-view="enterPin" style="margin-top: 40px"></div>
-    </div>
-
-    <div id="content" ng-show="!model.isLoggedIn()">
-        <div ui-view="navbar"></div>
-        <div ui-view="login" style="margin-top: 40px"></div>
-    </div>
-</div>
-
-asdf
+<app-router>
+  <app-route path="/" import="/elements/map/map-view-controller.html"></app-route>
+  <app-route path="/queue" import="/elements/driver-queue/driver-queue.html"></app-route>
+  <app-route path="/dues" import="/elements/dues-driver-list/dues-driver-list.html"></app-route>
+  <app-route path="/calandar" import="/elements/driver-calandar/driver-calandar.html"></app-route>
+  <app-route path="/invite" import="/elements/invite-a-guest/invite-a-guest.html"></app-route>
+</app-router>
